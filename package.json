@@ -1,6 +1,6 @@
 {
-  "private": true,
-  "name": "color",
+  "private": false,
+  "name": "react-color-lite",
   "version": "1.0.0",
   "scripts": {
     "start": "dumi dev",
@@ -41,5 +41,17 @@
     "lint-staged": "^10.0.7",
     "prettier": "^2.2.1",
     "yorkie": "^2.0.0"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/color.git"
+  },
+  "bugs": {
+    "url": "https://github.com/color/issues"
+  },
+  "files": [
+    "es",
+    "lib"
+  ],
+  "homepage": "https://haijee.github.io/color/"
 }
