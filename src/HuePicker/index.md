@@ -1,18 +1,21 @@
 ---
 nav:
-  title: Components
   path: /components
+group:
+  title: HuePicker
 ---
 
-## Foo
+## HuePicker
 
 Demo:
 
 ```tsx
 import React from 'react';
-import { Foo } from 'color';
+import { HuePicker } from 'react-color-lite';
 
-export default () => <Foo title="First Demo" />;
+export default () => <HuePicker title="HuePicker" />;
 ```
 
 More skills for writing demo: https://d.umijs.org/guide/basic#write-component-demo
+
+## PalettePicker2

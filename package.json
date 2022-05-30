@@ -1,7 +1,7 @@
 {
   "private": false,
   "name": "react-color-lite",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "scripts": {
     "start": "dumi dev",
     "docs:build": "dumi build",
@@ -44,10 +44,10 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/color.git"
+    "url": "https://haijee.github.com/color.git"
   },
   "bugs": {
-    "url": "https://github.com/color/issues"
+    "url": "https://haijee.github.com/color/issues"
   },
   "files": [
     "es",

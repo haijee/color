@@ -1,33 +1,26 @@
-# color
+# React Color Lite
+
+# Demo
 
 ## Getting Started
 
-Install dependencies,
+Installation & Usage
 
 ```bash
-$ npm i
+
+    npm i react-color-lite
+
 ```
 
-Start the dev server,
+Include the Component
 
-```bash
-$ npm start
-```
+```javascript
+import React from 'react';
+import { PalettePicker } from 'react-color-lite';
 
-Build documentation,
-
-```bash
-$ npm run docs:build
-```
-
-Run test,
-
-```bash
-$ npm test
-```
-
-Build library via `father-build`,
-
-```bash
-$ npm run build
+class Component extends React.Component {
+  render() {
+    return <PalettePicker />;
+  }
+}
 ```
