@@ -13,7 +13,7 @@ const AlphaPicker = ({ defaultValue = 50, onChange = () => {} }) => {
     const spotInfo = refAlphaSpot.current.getBoundingClientRect();
     const left = spotInfo.left - pickerInfo.left;
     const width = pickerInfo.width - spotInfo.width;
-    const value = (left / width).toFixed(2) * 100;
+    const value = (left / width).toFixed(3);
     console.log(value);
     onChange(value);
   };

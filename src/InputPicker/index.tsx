@@ -1,6 +1,5 @@
 import React, { useEffect, useRef, useState } from 'react';
 import Draggable from 'react-draggable';
-import tinycolor from 'tinycolor2';
 
 import './index.less';
 
@@ -13,22 +12,15 @@ const HuePicker = ({ hsv, onChange = () => {} }) => {
     const spotInfo = refHueSpot.current.getBoundingClientRect();
     const left = spotInfo.left - pickerInfo.left;
     const width = pickerInfo.width - spotInfo.width;
-    const h = left / width;
-    const instance = tinycolor({ ...hsv, h });
-    if (instance.isValid()) {
-      onChange({
-        hsv: { ...hsv, h },
-        hex: instance.toHex(),
-        hsl: instance.toHsl(),
-        rgb: instance.toRgb(),
-      });
-    }
+    const value = ((left / width) * 360).toFixed();
+    console.log(value);
+    onChange(value);
   };
 
   useEffect(() => {
     // console.log(props)
     const { width } = refHuePicker.current.getBoundingClientRect();
-    const value = width * (hsv?.h / 360);
+    const value = width * (hsv.h / 360);
     setX(value);
   }, [hsv]);
 

@@ -2,18 +2,20 @@
 nav:
   path: /components
 group:
-  title: HexPicker
+  title: HuePicker
 ---
 
-## HexPicker
+## HuePicker
 
 Demo:
 
 ```tsx
 import React from 'react';
-import { HexPicker } from 'react-color-lite';
+import { HuePicker } from 'react-color-lite';
 
-export default () => <HexPicker hex="#119944" />;
+export default () => <HuePicker hsv={{ h: 200, s: 100, v: 100 }} />;
 ```
 
 More skills for writing demo: https://d.umijs.org/guide/basic#write-component-demo
+
+## PalettePicker2
