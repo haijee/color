@@ -1,7 +1,8 @@
 import React from 'react';
+import './index.less';
 
-const HuePicker = ({ title }) => {
-  return <h2>{title}</h2>;
+const BlockPicker = ({ color = '#194D33', alpha = 100 }) => {
+  return <div className="block-picker" style={{ background: color, opacity: alpha / 100 }}></div>;
 };
 
-export default HuePicker;
+export default BlockPicker;
