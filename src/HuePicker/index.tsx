@@ -1,19 +1,25 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useEffect, useMemo, useRef, useState } from 'react';
 import Draggable from 'react-draggable';
 import tinycolor from 'tinycolor2';
 
 import './index.less';
 
 const HuePicker = ({ hsv, onChange = () => {} }) => {
+  const [domInfo, setDomInfo] = useState({});
+
   const refHuePicker = useRef(null);
   const refHueSpot = useRef(null);
-  const [x, setX] = useState(0);
-  const handleDrag = () => {
-    const pickerInfo = refHuePicker.current.getBoundingClientRect();
-    const spotInfo = refHueSpot.current.getBoundingClientRect();
-    const left = spotInfo.left - pickerInfo.left;
-    const width = pickerInfo.width - spotInfo.width;
-    const h = left / width;
+  const onMouseDown = (event) => {
+    const { width, height, left, top } = domInfo;
+    let x = event.clientX - left;
+    // 限制在色板内
+    if (x < 0) {
+      x = 0;
+    }
+    if (x > width - 10) {
+      x = width - 10;
+    }
+    const h = (x / (width - 10)) * 360;
     const instance = tinycolor({ ...hsv, h });
     if (instance.isValid()) {
       onChange({
@@ -24,25 +30,24 @@ const HuePicker = ({ hsv, onChange = () => {} }) => {
       });
     }
   };
+  const xMemo = useMemo(() => {
+    const { width } = domInfo;
+    return (hsv?.h / 360) * (width - 10);
+  }, [domInfo, hsv]);
 
   useEffect(() => {
-    // console.log(props)
-    const { width } = refHuePicker.current.getBoundingClientRect();
-    const value = width * (hsv?.h / 360);
-    setX(value);
+    const info = refHuePicker.current.getBoundingClientRect();
+    setDomInfo(info);
   }, [hsv]);
 
   return (
-    <div ref={refHuePicker} className="hue-picker">
+    <div ref={refHuePicker} className="hue-picker" onMouseDown={onMouseDown}>
       <Draggable
         axis="x"
         bounds=".hue-picker"
-        // handle='.alpha-picker'
-        defaultPosition={{ x: x, y: 0 }}
-        position={null}
-        // onStart={this.handleStart}
-        onDrag={handleDrag}
-        // onStop={this.handleStop}
+        defaultPosition={{ x: 0, y: 0 }}
+        position={{ x: xMemo, y: 0 }}
+        onDrag={onMouseDown}
       >
         <div ref={refHueSpot} className="color-spot"></div>
       </Draggable>

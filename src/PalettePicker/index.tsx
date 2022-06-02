@@ -10,7 +10,7 @@ const PalettePicker = ({ hsv = { h: 0.7, s: 0.7, v: 0.6 }, onChange = () => {} }
   const [domInfo, setDomInfo] = useState({});
 
   const rgbMemo = useMemo(() => {
-    const instance = tinycolor({ h: hsv?.h * 360, s: 100, v: 100 });
+    const instance = tinycolor({ h: hsv?.h, s: 100, v: 100 });
     if (instance.isValid()) {
       const { r, g, b } = instance?.toRgb();
       return `rgb(${r},${g},${b})`;
@@ -51,9 +51,8 @@ const PalettePicker = ({ hsv = { h: 0.7, s: 0.7, v: 0.6 }, onChange = () => {} }
   const xyMemo = useMemo(() => {
     const { width, height } = domInfo;
     const x = width * hsv.s;
-    const y = height * hsv.v;
-    console.log('xyMemo', { x, y });
-    return { x, y: -y };
+    const y = -height * hsv.v;
+    return { x, y };
   }, [hsv, domInfo]);
 
   useEffect(() => {

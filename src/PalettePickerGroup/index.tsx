@@ -9,7 +9,6 @@ const PalettePickerGroup = ({ defaultColor = '#1AE868', onChangeColor = () => {}
   useEffect(() => {
     const instance = tinycolor(defaultColor);
     if (instance.isValid()) {
-      console.log('---isValid---');
       const result = {
         hex: instance.toHex(),
         hsv: instance.toHsv(),
@@ -17,7 +16,7 @@ const PalettePickerGroup = ({ defaultColor = '#1AE868', onChangeColor = () => {}
         rgb: instance.toRgb(),
       };
       setColor(result);
-      console.log(result);
+      console.log('---isValid---', result);
       // onChange(result)
     }
   }, [defaultColor]);
