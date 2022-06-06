@@ -1,19 +1,20 @@
 ---
+title: InputPicker 颜色输入
 nav:
   path: /components
 group:
-  title: HuePicker
+  title: InputPicker 颜色输入
 ---
 
-## HuePicker
+## InputPicker
 
 Demo:
 
 ```tsx
 import React from 'react';
-import { HuePicker } from 'react-color-lite';
+import { InputPicker } from 'react-color-lite';
 
-export default () => <HuePicker hsv={{ h: 200, s: 100, v: 100 }} />;
+export default () => <InputPicker hsv={{ h: 200, s: 100, v: 100 }} />;
 ```
 
 More skills for writing demo: https://d.umijs.org/guide/basic#write-component-demo

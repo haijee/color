@@ -1,14 +1,13 @@
 ---
 title: hsv模型（自定义页面名称）
 nav:
-  # title: 指南
+  title: 指南
   path: /guide
 group:
-  title: hsv模型
-  path: /hsv
+  title: Hsv 模型
 ---
 
-# hsv 模型 1
+# Hsv 模型
 
 1
 

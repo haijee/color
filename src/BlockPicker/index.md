@@ -1,11 +1,12 @@
 ---
+title: BlockPicker 色块
 nav:
   path: /components
 group:
-  title: BlockPicker
+  title: BlockPicker 色块
 ---
 
-## BlockPicker
+## BlockPicker 色块
 
 Demo:
 

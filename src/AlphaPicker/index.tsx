@@ -1,9 +1,9 @@
 import React, { useMemo, useRef, useState, useEffect } from 'react';
 import Draggable from 'react-draggable';
-
+import { IAlphaPicker } from './interface';
 import './index.less';
 
-const AlphaPicker = ({ defaultValue = 50, onChange = () => {} }) => {
+const AlphaPicker: React.FC<IAlphaPicker> = ({ defaultValue = 100, onChange }) => {
   const refAlphaPicker = useRef(null);
   const refAlphaSpot = useRef(null);
   const [x, setX] = useState(0);

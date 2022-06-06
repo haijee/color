@@ -1,8 +1,9 @@
 ---
+title: HuePicker 色度
 nav:
   path: /components
 group:
-  title: HuePicker
+  title: HuePicker 色度
 ---
 
 # HuePicker

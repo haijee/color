@@ -1,11 +1,12 @@
 ---
+title: HexPicker 色值
 nav:
   path: /components
 group:
-  title: HexPicker
+  title: HexPicker 色值
 ---
 
-## HexPicker
+## HexPicker 色值
 
 Demo:
 

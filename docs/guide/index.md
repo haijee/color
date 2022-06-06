@@ -1,8 +1,10 @@
 ---
-title: 调色板
+title: 基本概念
 nav:
   title: 指南
   path: /guide
+group:
+  title: 基本概念
 ---
 
 # 介绍 内容
