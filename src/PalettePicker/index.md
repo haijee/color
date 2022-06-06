@@ -1,12 +1,14 @@
 ---
-# title: PalettePicker
+title: PalettePicker 饱和度/明度
 nav:
   path: /components
 group:
-  title: PalettePicker
+  title: PalettePicker 饱和度/明度
 ---
 
-<!-- ### PalettePicker -->
+### PalettePicker 饱和度/明度
+
+描述饱和度（Saturation），明度（Value）
 
 Demo:
 
