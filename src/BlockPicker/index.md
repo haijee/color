@@ -6,15 +6,25 @@ group:
   title: BlockPicker 色块
 ---
 
-## BlockPicker 色块
+# BlockPicker 色块
 
-Demo:
+---
+
+## 描述
+
+这个组件仅用于展示当前颜色的效果。
+
+---
+
+## 示例:
 
 ```tsx
 import React from 'react';
 import { BlockPicker } from 'react-color-lite';
 
-export default () => <BlockPicker color="#194D33" alpha={50} />;
+export default () => <BlockPicker color="#194D33" alpha={90} />;
 ```
 
-More skills for writing demo: https://d.umijs.org/guide/basic#write-component-demo
+## 属性：
+
+<API hideTitle></API>

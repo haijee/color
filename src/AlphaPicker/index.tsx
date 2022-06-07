@@ -3,7 +3,8 @@ import Draggable from 'react-draggable';
 import { IAlphaPicker } from './interface';
 import './index.less';
 
-const AlphaPicker: React.FC<IAlphaPicker> = ({ defaultValue = 100, onChange }) => {
+const AlphaPicker: React.FC<IAlphaPicker> = (props) => {
+  const { defaultValue = 100, onChange } = props;
   const refAlphaPicker = useRef(null);
   const refAlphaSpot = useRef(null);
   const [x, setX] = useState(0);
@@ -14,8 +15,7 @@ const AlphaPicker: React.FC<IAlphaPicker> = ({ defaultValue = 100, onChange }) =
     const left = spotInfo.left - pickerInfo.left;
     const width = pickerInfo.width - spotInfo.width;
     const value = (left / width).toFixed(3);
-    console.log(value);
-    onChange(value);
+    typeof onChange === 'function' && onChange(value);
   };
 
   useEffect(() => {

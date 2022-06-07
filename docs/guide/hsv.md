@@ -1,5 +1,5 @@
 ---
-title: hsv模型（自定义页面名称）
+title: Hsv 模型
 nav:
   title: 指南
   path: /guide
@@ -9,16 +9,4 @@ group:
 
 # Hsv 模型
 
-1
-
-# 1111hsv 模型 内容
-
-2
-
-# hsv 模型 内容
-
-3
-
-# hsv 模型 内容
-
-4
+HSV(Hue, Saturation, Value)是根据颜色的直观特性由 A. R. Smith 在 1978 年创建的一种颜色空间, 也称六角锥体模型(Hexcone Model)（参考百度）。在 HSV 模型中，颜色是由色度（Hue），饱和度（Saturation），明度（Value）共同组成。
