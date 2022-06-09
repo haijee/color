@@ -6,15 +6,28 @@ group:
   title: HexPicker 色值
 ---
 
-## HexPicker 色值
+# HexPicker 色值
 
-Demo:
+---
+
+## 描述
+
+这是一个 HEX（16 进制）颜色值的输入框组件
+
+---
+
+## 示例:
 
 ```tsx
-import React from 'react';
+import React, { useState } from 'react';
 import { HexPicker } from 'react-color-lite';
 
-export default () => <HexPicker hex="#119944" />;
+export default () => {
+  const [color, setColor] = useState({ hex: '199222' });
+  return <HexPicker color={color} onChange={setColor} />;
+};
 ```
 
-More skills for writing demo: https://d.umijs.org/guide/basic#write-component-demo
+## 属性：
+
+<API hideTitle></API>

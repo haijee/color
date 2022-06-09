@@ -22,7 +22,7 @@ group:
 import React from 'react';
 import { BlockPicker } from 'react-color-lite';
 
-export default () => <BlockPicker color="#194D33" alpha={90} />;
+export default () => <BlockPicker color={{ rgb: { r: 26, g: 232, b: 104 } }} alpha={90} />;
 ```
 
 ## 属性：

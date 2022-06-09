@@ -1,4 +1,19 @@
+@gap: 10px;
 .palette-picker-group {
-  width: 50%;
   margin: 0 auto;
+  .wrapper {
+    display: flex;
+    gap: @gap;
+    margin: @gap 0;
+    .hue-alpha {
+      display: flex;
+      flex: 1;
+      flex-direction: column;
+      gap: @gap;
+    }
+  }
+  .hex-picker {
+    display: flex;
+    gap: @gap;
+  }
 }

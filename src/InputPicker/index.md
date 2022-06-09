@@ -11,12 +11,39 @@ group:
 Demo:
 
 ```tsx
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { InputPicker } from 'react-color-lite';
+import tinycolor from 'tinycolor2';
 
-export default () => <InputPicker hsv={{ h: 200, s: 100, v: 100 }} />;
+export default (props) => {
+  const { defaultColor = '#1AE868' } = props;
+  const [color, setColor] = useState({});
+  const [type, setType] = useState('RGB');
+  const onSelect = (event) => {
+    const val = event.target.value;
+    setType(val);
+  };
+  useEffect(() => {
+    const instance = tinycolor(defaultColor);
+    if (instance.isValid()) {
+      const result = {
+        hex: instance.toHex(),
+        hsv: instance.toHsv(),
+        hsl: instance.toHsl(),
+        rgb: instance.toRgb(),
+      };
+      setColor(result);
+    }
+  }, [defaultColor]);
+  return (
+    <div className="wrapper">
+      <select onChange={onSelect}>
+        <option>RGB</option>
+        <option>HSV</option>
+        <option>HSL</option>
+      </select>
+      <InputPicker color={color} type={type} onChange={setColor} />
+    </div>
+  );
+};
 ```
-
-More skills for writing demo: https://d.umijs.org/guide/basic#write-component-demo
-
-## PalettePicker2

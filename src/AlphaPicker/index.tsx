@@ -14,6 +14,7 @@ const AlphaPicker: React.FC<IAlphaPicker> = (props) => {
     const spotInfo = refAlphaSpot.current.getBoundingClientRect();
     const left = spotInfo.left - pickerInfo.left;
     const width = pickerInfo.width - spotInfo.width;
+    setX(left);
     const value = (left / width).toFixed(3);
     typeof onChange === 'function' && onChange(value);
   };
@@ -30,8 +31,8 @@ const AlphaPicker: React.FC<IAlphaPicker> = (props) => {
         axis="x"
         bounds=".alpha-picker"
         // handle='.alpha-picker'
-        defaultPosition={{ x: x, y: 0 }}
-        position={null}
+        defaultPosition={{ x, y: 0 }}
+        position={{ x, y: 0 }}
         // onStart={this.handleStart}
         onDrag={handleDrag}
         // onStop={this.handleStop}

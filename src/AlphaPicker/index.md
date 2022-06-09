@@ -6,17 +6,17 @@ group:
   title: AlphaPicker 透明度
 ---
 
-## AlphaPicker 透明度
+# AlphaPicker 透明度
 
 ---
 
-# 描述
+## 描述
 
 这是一个横向的滑动器，通过拖动代表透明度 0 ～ 1 的值。
 
 ---
 
-# 示例:
+## 示例:
 
 ```tsx
 import React, { useState } from 'react';
@@ -33,6 +33,6 @@ export default () => {
 };
 ```
 
-# 属性：
+## 属性：
 
 <API hideTitle></API>
