@@ -3,11 +3,11 @@ import tinycolor from 'tinycolor2';
 
 import './index.less';
 
-const InputPicker = (props) => {
+const InputPicker = (props: any) => {
   const { color, type, onChange } = props;
-  const [abc, setAbc] = useState({});
+  const [abc, setAbc] = useState<any>({});
 
-  const colorToAbc = (color, type) => {
+  const colorToAbc = (color: any, type: string) => {
     if (type === 'RGB') {
       const rgb = color?.rgb;
       return {
@@ -32,36 +32,37 @@ const InputPicker = (props) => {
     }
     return {};
   };
-  const abcToColor = (abc, type) => {
+  const abcToColor = (abc: any, type: string) => {
+    const { a = 0, b = 0, c = 0 } = abc;
     if (type === 'RGB') {
       return {
-        r: abc.a,
-        g: abc.b,
-        b: abc.c,
+        r: a,
+        g: b,
+        b: c,
       };
     } else if (type === 'HSV') {
       return {
-        h: abc.a,
-        s: abc.b / 100,
-        v: abc.c / 100,
+        h: a,
+        s: b / 100,
+        v: c / 100,
       };
     } else if (type === 'HSL') {
       return {
-        h: abc.a,
-        s: abc.b / 100,
-        l: abc.c / 100,
+        h: a,
+        s: b / 100,
+        l: c / 100,
       };
     }
     return {};
   };
-  const handleChange = (event, key) => {
+  const handleChange = (event: any, key: any) => {
     const val = event.target.value;
-    const _abc = {
+    const _abc: any = {
       ...abc,
       [key]: val,
     };
     setAbc(_abc);
-    const params = abcToColor(_abc, type);
+    const params: any = abcToColor(_abc, type);
     const instance = tinycolor(params);
     if (instance.isValid()) {
       onChange({

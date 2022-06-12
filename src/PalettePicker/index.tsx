@@ -4,7 +4,8 @@ import tinycolor from 'tinycolor2';
 
 import './index.less';
 
-const PalettePicker = ({ hsv = { h: 0.7, s: 0.7, v: 0.6 }, onChange = () => {} }) => {
+const PalettePicker = (props: any) => {
+  const { hsv = { h: 0.7, s: 0.7, v: 0.6 }, onChange } = props;
   const refPalettePicker = useRef(null);
   const refPaletteSpot = useRef(null);
   const [domInfo, setDomInfo] = useState({});
@@ -18,8 +19,8 @@ const PalettePicker = ({ hsv = { h: 0.7, s: 0.7, v: 0.6 }, onChange = () => {} }
     return '';
   }, [hsv]);
 
-  const onMouseDown = (event) => {
-    const { width, height, left, top } = domInfo;
+  const onMouseDown = (event: any) => {
+    const { width, height, left, top } = refPalettePicker.current.getBoundingClientRect();
     let x = event.clientX - left;
     let y = top + height - event.clientY;
     // 限制在色板内
@@ -38,7 +39,7 @@ const PalettePicker = ({ hsv = { h: 0.7, s: 0.7, v: 0.6 }, onChange = () => {} }
     const s = x / width;
     const v = y / height;
 
-    const instance = tinycolor({ ...hsv, s, v });
+    const instance: any = tinycolor({ ...hsv, s, v });
     if (instance.isValid()) {
       onChange({
         hsv: { ...hsv, s, v },
@@ -49,7 +50,7 @@ const PalettePicker = ({ hsv = { h: 0.7, s: 0.7, v: 0.6 }, onChange = () => {} }
     }
   };
   const xyMemo = useMemo(() => {
-    const { width, height } = domInfo;
+    const { width, height } = refPalettePicker.current.getBoundingClientRect();
     const x = width * hsv.s;
     const y = -height * hsv.v;
     return { x, y };

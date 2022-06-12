@@ -1,4 +1,7 @@
 import React, { useEffect, useMemo, useRef, useState } from 'react';
+import tinycolor from 'tinycolor2';
+
+// @ts-ignore
 import {
   PalettePicker,
   HuePicker,
@@ -6,16 +9,17 @@ import {
   BlockPicker,
   HexPicker,
   InputPicker,
-} from 'react-color-lite';
-import tinycolor from 'tinycolor2';
+} from '../index';
+
 import './index.less';
 
-const PalettePickerGroup = ({ defaultColor = '#1AE868', onChangeColor = () => {} }) => {
-  const [color, setColor] = useState({});
+const PalettePickerGroup = (props: any) => {
+  const { defaultColor = '#1AE868', onChangeColor = () => {} } = props;
+  const [color, setColor] = useState<any>({});
   const [alpha, setAlpha] = useState(1);
   const [type, setType] = useState('RGB');
 
-  const onSelect = (event) => {
+  const onSelect = (event: any) => {
     const val = event.target.value;
     setType(val);
   };

@@ -19,4 +19,11 @@ export interface IHexPicker {
    * @default           1
    */
   alpha?: Number; // 支持识别 TypeScript 可选类型为非必选属性
+
+  /**
+   * 可以这样写属性描述
+   * @description       色值改变时触发
+   * @default           ()=>{}
+   */
+  onChange?: Function; // 支持识别 TypeScript 可选类型为非必选属性
 }

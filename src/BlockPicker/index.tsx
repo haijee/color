@@ -6,7 +6,7 @@ import './index.less';
 
 const BlockPicker: React.FC<IBlockPicker> = (props) => {
   const { color = '#194D33', alpha = 1 } = props;
-  const [rgba, setRgba] = useState({});
+  const [rgba, setRgba] = useState('');
   useEffect(() => {
     const rgb = color?.rgb;
     console.log(color);

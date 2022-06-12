@@ -5,23 +5,23 @@ import './index.less';
 
 const AlphaPicker: React.FC<IAlphaPicker> = (props) => {
   const { defaultValue = 100, onChange } = props;
-  const refAlphaPicker = useRef(null);
-  const refAlphaSpot = useRef(null);
+  const refAlphaPicker = useRef<HTMLDivElement>(null);
+  const refAlphaSpot = useRef<HTMLDivElement>(null);
   const [x, setX] = useState(0);
 
   const handleDrag = () => {
-    const pickerInfo = refAlphaPicker.current.getBoundingClientRect();
-    const spotInfo = refAlphaSpot.current.getBoundingClientRect();
-    const left = spotInfo.left - pickerInfo.left;
-    const width = pickerInfo.width - spotInfo.width;
+    const pickerInfo: any = refAlphaPicker?.current?.getBoundingClientRect();
+    const spotInfo: any = refAlphaSpot?.current?.getBoundingClientRect();
+    const left: any = spotInfo?.left - pickerInfo?.left;
+    const width: any = pickerInfo?.width - spotInfo?.width;
     setX(left);
-    const value = (left / width).toFixed(3);
+    const value: any = (left / width).toFixed(3);
     typeof onChange === 'function' && onChange(value);
   };
 
   useEffect(() => {
-    const { width } = refAlphaPicker.current.getBoundingClientRect();
-    const value = width * (defaultValue / 100);
+    const { width = 0 }: { width: any } = refAlphaPicker.current?.getBoundingClientRect();
+    const value: number = width * (Number(defaultValue) / 100);
     setX(value);
   }, [defaultValue]);
 

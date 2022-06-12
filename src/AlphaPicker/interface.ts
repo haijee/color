@@ -1,3 +1,4 @@
+import * as React from 'react';
 export interface IAlphaPicker {
   /**
    * 可以这样写属性描述
@@ -16,7 +17,7 @@ export interface IAlphaPicker {
   /**
    * 可以这样写属性描述
    * @description       透明度的值改变时触发
-   * @default           0~100
+   * @default           ()=>{}
    */
-  onChage?: Function; // 支持识别 TypeScript 可选类型为非必选属性
+  onChange?: Function; // 支持识别 TypeScript 可选类型为非必选属性
 }

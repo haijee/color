@@ -4,13 +4,13 @@ import tinycolor from 'tinycolor2';
 
 import './index.less';
 
-const HuePicker = ({ hsv, onChange = () => {} }) => {
+const HuePicker = (props: any) => {
+  const { hsv, onChange = () => {} } = props;
   const [domInfo, setDomInfo] = useState({});
-
-  const refHuePicker = useRef(null);
-  const refHueSpot = useRef(null);
-  const onMouseDown = (event) => {
-    const { width, height, left, top } = domInfo;
+  const refHuePicker = useRef<any>(null);
+  const refHueSpot = useRef<any>(null);
+  const onMouseDown = (event: any) => {
+    const { width, height, left, top } = refHuePicker.current.getBoundingClientRect();
     let x = event.clientX - left;
     // 限制在色板内
     if (x < 0) {
@@ -31,7 +31,7 @@ const HuePicker = ({ hsv, onChange = () => {} }) => {
     }
   };
   const xMemo = useMemo(() => {
-    const { width } = domInfo;
+    const { width } = refHuePicker.current.getBoundingClientRect();
     return (hsv?.h / 360) * (width - 10);
   }, [domInfo, hsv]);
 
