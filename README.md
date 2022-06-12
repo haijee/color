@@ -1,6 +1,6 @@
 # React Color Lite
 
-# Demo
+基于 react 项目的颜色选择器
 
 ## Getting Started
 
