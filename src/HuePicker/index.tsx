@@ -6,7 +6,7 @@ import './index.less';
 
 const HuePicker = (props: any) => {
   const { hsv, onChange = () => {} } = props;
-  const [domInfo, setDomInfo] = useState({});
+  const [domInfo, setDomInfo] = useState<any>({});
   const refHuePicker = useRef<any>(null);
   const refHueSpot = useRef<any>(null);
   const onMouseDown = (event: any) => {
@@ -31,7 +31,7 @@ const HuePicker = (props: any) => {
     }
   };
   const xMemo = useMemo(() => {
-    const { width } = refHuePicker.current.getBoundingClientRect();
+    const { width } = domInfo;
     return (hsv?.h / 360) * (width - 10);
   }, [domInfo, hsv]);
 

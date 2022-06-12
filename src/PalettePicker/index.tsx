@@ -8,7 +8,7 @@ const PalettePicker = (props: any) => {
   const { hsv = { h: 0.7, s: 0.7, v: 0.6 }, onChange } = props;
   const refPalettePicker = useRef(null);
   const refPaletteSpot = useRef(null);
-  const [domInfo, setDomInfo] = useState({});
+  const [domInfo, setDomInfo] = useState<any>({});
 
   const rgbMemo = useMemo(() => {
     const instance = tinycolor({ h: hsv?.h, s: 100, v: 100 });
@@ -50,7 +50,7 @@ const PalettePicker = (props: any) => {
     }
   };
   const xyMemo = useMemo(() => {
-    const { width, height } = refPalettePicker.current.getBoundingClientRect();
+    const { width, height } = domInfo;
     const x = width * hsv.s;
     const y = -height * hsv.v;
     return { x, y };
