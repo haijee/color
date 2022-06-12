@@ -8,7 +8,15 @@ group:
 
 ## InputPicker
 
-Demo:
+---
+
+## 描述
+
+该组件用于手动输入 HSV，HSL，RGB 色值
+
+---
+
+## 示例:
 
 ```tsx
 import React, { useState, useEffect } from 'react';
@@ -47,3 +55,7 @@ export default (props) => {
   );
 };
 ```
+
+## 属性：
+
+<API hideTitle></API>

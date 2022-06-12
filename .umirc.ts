@@ -16,7 +16,7 @@ export default defineConfig({
       path: 'https://github.com/haijee/color/releases/',
     },
     {
-      title: 'Fithub',
+      title: 'Github',
       path: 'https://github.com/haijee/color/',
     },
   ],

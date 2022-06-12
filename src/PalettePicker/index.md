@@ -8,9 +8,15 @@ group:
 
 ### PalettePicker 饱和度/明度
 
-描述饱和度（Saturation），明度（Value）
+---
 
-Demo:
+## 描述
+
+该组件基于 HSV 模型，用于控制 饱和度（Saturation），明度（Value）两个色值
+
+---
+
+## 示例:
 
 ```tsx
 import React from 'react';
@@ -19,4 +25,6 @@ import { PalettePicker } from 'react-color-lite';
 export default () => <PalettePicker title="PalettePicker" />;
 ```
 
-More skills for writing demo: https://d.umijs.org/guide/basic#write-component-demo
+## 属性：
+
+<API hideTitle></API>
