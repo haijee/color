@@ -1,81 +1,45 @@
 import React, { useEffect, useMemo, useRef, useState } from 'react';
-import Draggable from 'react-draggable';
 import tinycolor from 'tinycolor2';
+import useDrag from '../hooks/useDrag';
 
+import { IPalettePicker } from './interface';
 import './index.less';
 
-const PalettePicker = (props: any) => {
+const PalettePicker: React.FC<IPalettePicker> = (props: any) => {
   const { hsv = { h: 0.7, s: 0.7, v: 0.6 }, onChange } = props;
-  const refPalettePicker = useRef(null);
-  const refPaletteSpot = useRef(null);
-  const [domInfo, setDomInfo] = useState<any>({});
+  const { h, s, v } = hsv;
+  const containerRef = useRef<HTMLDivElement>(null);
+  const targetRef = useRef<HTMLDivElement>(null);
+
+  const { dragInfo, onMouseDown } = useDrag({});
 
   const rgbMemo = useMemo(() => {
-    const instance = tinycolor({ h: hsv?.h, s: 100, v: 100 });
+    const instance = tinycolor({ h, s: 100, v: 100 });
     if (instance.isValid()) {
       const { r, g, b } = instance?.toRgb();
       return `rgb(${r},${g},${b})`;
     }
     return '';
-  }, [hsv]);
+  }, [hsv.h]);
 
-  const onMouseDown = (event: any) => {
-    const { width, height, left, top } = refPalettePicker.current.getBoundingClientRect();
-    let x = event.clientX - left;
-    let y = top + height - event.clientY;
-    // 限制在色板内
-    if (x < -5) {
-      x = 0;
+  const styleMemo = useMemo(() => {
+    if (containerRef?.current && targetRef?.current) {
+      const { width, height } = containerRef?.current?.getBoundingClientRect();
+      const targetInfo = targetRef?.current?.getBoundingClientRect();
+      const left: number = (dragInfo.x / (width + targetInfo.width)) * 100 + '%';
+      const top: number = (dragInfo.y / (height + targetInfo.height)) * 100 + '%';
+      return { left, top };
     }
-    if (x > width) {
-      x = width;
-    }
-    if (y < -5) {
-      y = 0;
-    }
-    if (y > height) {
-      y = height;
-    }
-    const s = x / width;
-    const v = y / height;
+    return { left: dragInfo.x, top: dragInfo.x };
+  }, [dragInfo]);
 
-    const instance: any = tinycolor({ ...hsv, s, v });
-    if (instance.isValid()) {
-      onChange({
-        hsv: { ...hsv, s, v },
-        hex: instance.toHex(),
-        hsl: instance.toHsl(),
-        rgb: instance.toRgb(),
-      });
-    }
-  };
-  const xyMemo = useMemo(() => {
-    const { width, height } = domInfo;
-    const x = width * hsv.s;
-    const y = -height * hsv.v;
-    return { x, y };
-  }, [hsv, domInfo]);
-
-  useEffect(() => {
-    const domInfo = refPalettePicker.current.getBoundingClientRect();
-    setDomInfo(domInfo);
-  }, []);
+  useEffect(() => {}, [dragInfo]);
 
   return (
-    <div ref={refPalettePicker} className="palette-picker" style={{ background: rgbMemo }}>
+    <div ref={containerRef} className="palette-picker" style={{ background: rgbMemo }}>
       <div className="palette-white">
-        <div className="palette-black" onMouseDown={onMouseDown}>
-          <Draggable
-            // bounds=".palette-picker"
-            // handle='.alpha-picker'
-            defaultPosition={{ x: 0, y: 0 }}
-            position={xyMemo}
-            // onStart={onMouseDown}
-            onDrag={onMouseDown}
-            // onStop={this.handleStop}
-          >
-            <div ref={refPaletteSpot} className="color-spot"></div>
-          </Draggable>
+        <div className="palette-black">
+          <div ref={targetRef} style={styleMemo} className="color-spot" onMouseDown={onMouseDown} />
         </div>
       </div>
     </div>

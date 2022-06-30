@@ -22,7 +22,7 @@ const useDrag = (props: DragOptions) => {
     let y = clientY - currentRef.current.y + dragInfo.y;
     let x = clientX - currentRef.current.x + dragInfo.x;
     // 限制拖动范围
-    if (targetRef.current && containerRef.current) {
+    if (targetRef?.current && containerRef?.current) {
       if (x <= 0) {
         x = 0;
       }
@@ -67,14 +67,16 @@ const useDrag = (props: DragOptions) => {
   };
 
   useEffect(() => {
-    const { width, height } = targetRef.current.getBoundingClientRect();
-    const containerInfo = containerRef.current.getBoundingClientRect();
-    const newX = (x / n) * (containerInfo.width - width);
-    const newY = (y / n) * (containerInfo.height - height);
-    setDragInfo({
-      x: newX,
-      y: newY,
-    });
+    if (targetRef?.current && containerRef?.current) {
+      const { width, height } = targetRef.current.getBoundingClientRect();
+      const containerInfo = containerRef.current.getBoundingClientRect();
+      const newX = (x / n) * (containerInfo.width - width);
+      const newY = (y / n) * (containerInfo.height - height);
+      setDragInfo({
+        x: newX,
+        y: newY,
+      });
+    }
     return () => {
       unbindEvents();
     };
