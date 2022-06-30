@@ -1,5 +1,4 @@
 import React, { useEffect, useMemo, useRef, useState } from 'react';
-import Draggable from 'react-draggable';
 import tinycolor from 'tinycolor2';
 
 import './index.less';
@@ -42,15 +41,7 @@ const HuePicker = (props: any) => {
 
   return (
     <div ref={refHuePicker} className="hue-picker" onMouseDown={onMouseDown}>
-      <Draggable
-        axis="x"
-        bounds=".hue-picker"
-        defaultPosition={{ x: 0, y: 0 }}
-        position={{ x: xMemo, y: 0 }}
-        onDrag={onMouseDown}
-      >
-        <div ref={refHueSpot} className="color-spot"></div>
-      </Draggable>
+      <div>hanlde</div>
     </div>
   );
 };
