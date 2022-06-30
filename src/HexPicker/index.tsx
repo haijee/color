@@ -1,8 +1,9 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import tinycolor from 'tinycolor2';
+
 import { IHexPicker } from './interface';
-// : React.FC<IHexPicker>
-const HexPicker = (props: any) => {
+
+const HexPicker: React.FC<IHexPicker> = (props: any) => {
   const { color = {}, onChange } = props;
   const { hex } = color;
   const handleChange = (event: any) => {

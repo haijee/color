@@ -3,13 +3,14 @@ import { useEffect, useRef, useState } from 'react';
 export interface DragOptions {
   x?: number;
   y?: number;
+  n?: number;
   targetRef?: any;
   containerRef?: any;
   onDrag?: Function;
 }
 
 const useDrag = (props: DragOptions) => {
-  const { x = 0, y = 0, targetRef, containerRef } = props;
+  const { n = 100, x = 0, y = 0, targetRef, containerRef } = props;
   const currentRef: any = useRef();
   const [dragInfo, setDragInfo] = useState({ x, y });
 
@@ -68,8 +69,8 @@ const useDrag = (props: DragOptions) => {
   useEffect(() => {
     const { width, height } = targetRef.current.getBoundingClientRect();
     const containerInfo = containerRef.current.getBoundingClientRect();
-    const newX = (x / 100) * (containerInfo.width - width);
-    const newY = (y / 100) * (containerInfo.height - height);
+    const newX = (x / n) * (containerInfo.width - width);
+    const newY = (y / n) * (containerInfo.height - height);
     setDragInfo({
       x: newX,
       y: newY,

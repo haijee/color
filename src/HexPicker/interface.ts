@@ -15,13 +15,6 @@ export interface IHexPicker {
 
   /**
    * 可以这样写属性描述
-   * @description       透明度为 0～1 范围内的一个值
-   * @default           1
-   */
-  alpha?: Number; // 支持识别 TypeScript 可选类型为非必选属性
-
-  /**
-   * 可以这样写属性描述
    * @description       色值改变时触发
    * @default           ()=>{}
    */

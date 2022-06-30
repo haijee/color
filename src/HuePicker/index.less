@@ -1,7 +1,6 @@
 .hue-picker {
   position: relative;
   display: flex;
-  box-sizing: border-box;
   height: 10px;
   background: linear-gradient(
     to right,
@@ -16,11 +15,12 @@
   border-radius: 5px;
   cursor: pointer;
   .color-spot {
+    position: relative;
     display: inline-block;
     box-sizing: border-box;
-    width: 10px;
     height: 100%;
     border: 1px solid;
     border-radius: 50%;
+    aspect-ratio: 1/1;
   }
 }

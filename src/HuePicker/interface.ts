@@ -1,4 +1,4 @@
-export interface IHexPicker {
+export interface IHuePicker {
   /**
    * 可以这样写属性描述
    * @description       组件额外的 CSS className
@@ -11,12 +11,12 @@ export interface IHexPicker {
    * @description       color值为一个有效的色值
    * @default           {}
    */
-  color?: Object; // 支持识别 TypeScript 可选类型为非必选属性
+  hsv?: Object; // 支持识别 TypeScript 可选类型为非必选属性
 
   /**
    * 可以这样写属性描述
-   * @description       透明度为 0～1 范围内的一个值
-   * @default           1
+   * @description       HSV模型的H改变时触发
+   * @default           ()=>{}
    */
-  alpha?: Number; // 支持识别 TypeScript 可选类型为非必选属性
+  onChange?: Function; // 支持识别 TypeScript 可选类型为非必选属性
 }
