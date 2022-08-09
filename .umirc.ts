@@ -2,7 +2,7 @@ import { defineConfig } from 'dumi';
 
 export default defineConfig({
   title: '🎨 react-color-lite',
-  base: '/color',
+  base: '/react-color-lite',
   // favicon: '',
   // logo: ' ',
   outputPath: 'docs-dist',
