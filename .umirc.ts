@@ -6,7 +6,7 @@ export default defineConfig({
   // favicon: '',
   // logo: ' ',
   outputPath: 'docs-dist',
-  publicPath: process.env.NODE_ENV === 'production' ? '/color/' : '/',
+  publicPath: process.env.NODE_ENV === 'production' ? '/react-color-lite/' : '/',
   mode: 'site',
   // more config: https://d.umijs.org/config
   navs: [
