@@ -7,5 +7,5 @@ hero:
       link: /guide
 features:
 
-footer: Open-source MIT Licensed | Copyright © 2022<br />Powered by [dumi](https://d.umijs.org)
+footer: Open-source MIT Licensed | Copyright © 2022<br />Powered by [haijee](https://haijee.cn)
 ---
