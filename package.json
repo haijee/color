@@ -29,7 +29,6 @@
   "dependencies": {
     "@types/tinycolor2": "^1.4.3",
     "react": "^16.12.0 || ^17.0.0",
-    "react-draggable": "^4.4.5",
     "tinycolor2": "^1.4.2"
   },
   "devDependencies": {
